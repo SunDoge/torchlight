@@ -1,9 +1,10 @@
 import argparse
-import pyhocon
-from . import converter
-import logging
-from ..logging import experiment_path
 import os
+
+import pyhocon
+
+from . import converter
+from ..logging import experiment_path, logger
 
 __all__ = [
     'config'
@@ -24,7 +25,7 @@ config_args, _ = config_parser.parse_known_args()
 # Replace config
 for key, value in config_args.__dict__.items():
     if value is not None:
-        logging.info(f'Replace: {key} => {value}')
+        logger.info(f'Replace: {key} => {value}')
         config[key] = value
 
 with open(os.path.join(experiment_path, 'config.conf'), 'w') as f:

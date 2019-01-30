@@ -1,8 +1,8 @@
-import os
-import time
-import logging
 import argparse
+import logging
+import os
 import sys
+import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--logdir', default='experiments')
